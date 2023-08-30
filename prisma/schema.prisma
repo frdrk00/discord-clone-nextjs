@@ -13,9 +13,9 @@ datasource db {
 model Profile {
   id       String  @id @default(auto()) @map("_id") @db.ObjectId
   userId   String  @unique
-  name     String?
-  imageUrl String?
-  email    String? @unique
+  name     String
+  imageUrl String
+  email    String @unique
 
   servers  Server[]
   members  Member[]
@@ -27,9 +27,9 @@ model Profile {
 
 model Server {
   id         String  @id @default(auto()) @map("_id") @db.ObjectId
-  name       String?
-  imageUrl   String?
-  inviteCode String?
+  name       String
+  imageUrl   String
+  inviteCode String
 
   profileId String  @db.ObjectId
   profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
@@ -74,7 +74,7 @@ enum ChannelType {
 
 model Channel {
   id   String      @id @default(auto()) @map("_id") @db.ObjectId
-  name String?
+  name String
   type ChannelType @default(TEXT)
 
   profileId String  @db.ObjectId
