@@ -11,8 +11,8 @@ datasource db {
 }
 
 model Profile {
-  id       String  @id @default(auto()) @map("_id") @db.ObjectId
-  userId   String  @unique
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  userId   String @unique
   name     String
   imageUrl String
   email    String @unique
@@ -26,10 +26,10 @@ model Profile {
 }
 
 model Server {
-  id         String  @id @default(auto()) @map("_id") @db.ObjectId
+  id         String @id @default(auto()) @map("_id") @db.ObjectId
   name       String
   imageUrl   String
-  inviteCode String
+  inviteCode String @unique
 
   profileId String  @db.ObjectId
   profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
