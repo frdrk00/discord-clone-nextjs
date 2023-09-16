@@ -43,6 +43,7 @@ const DeleteChannelModal = () => {
       router.push(`/servers/${server?.id}`)
     } catch (error) {
       console.log(error)
+    } finally {
       setIsLoading(false)
     }
   }
@@ -57,8 +58,9 @@ const DeleteChannelModal = () => {
           <DialogDescription className="text-center text-zinc-500">
             Are you sure you want to do this? <br />
             <span className="text-indigo-500 font-semibold">
-              #{channel?.name} will be permanently deleted.
-            </span>
+              #{channel?.name}
+            </span>{' '}
+            will be permanently deleted.
           </DialogDescription>
         </DialogHeader>
         <DialogFooter className="bg-gray-100 px-6 py-4">
