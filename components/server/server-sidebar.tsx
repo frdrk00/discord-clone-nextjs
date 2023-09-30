@@ -38,9 +38,10 @@ const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
     return redirect('/')
   }
 
+
   const server = await db.server.findUnique({
     where: {
-      id: serverId,
+      id: serverId || '64efa4e1daa52417e8d9da4f',
     },
     include: {
       channels: {
