@@ -17,7 +17,7 @@ const MobileToggle = ({ serverId }: { serverId: string }) => {
         <div className="w-[72px]">
           <NavigationSidebar />
         </div>
-        <ServerSidebar />
+        <ServerSidebar serverId={serverId} />
       </SheetContent>
     </Sheet>
   )
